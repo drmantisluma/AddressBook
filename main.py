@@ -15,10 +15,13 @@ class GroupCreate(unittest.TestCase):
     def test_group_create(self):
         wd = self.driver
         self.login(wd)
+        self.create_group(wd)
+        self.logout(wd)
+
+    def create_group(self, wd):
         self.open_group_page(wd)
         self.open_group_creation(wd)
         self.fill_group_form(wd, Group("Name", "Head", "Foot"))
-        self.logout(wd)
 
     def login(self, driver):
         driver.get("http://localhost/addressbook/")
@@ -61,9 +64,12 @@ class UserCreate(unittest.TestCase):
     def test_user_create(self):
         wd = self.driver
         self.login(wd)
+        self.create_user(wd)
+        self.logout(wd)
+
+    def create_user(self, wd):
         self.open_user_creation(wd)
         self.fill_user_form(wd, User("First", "Middle", "Last", "Eff-tech", "Nizhniy"))
-        self.logout(wd)
 
     def login(self, driver):
         driver.get("http://localhost/addressbook/")
