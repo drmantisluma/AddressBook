@@ -3,8 +3,8 @@ import unittest
 
 from selenium import webdriver
 
-from group import Group
-from user import User
+from classess.group import Group
+from classess.user import User
 
 
 class GroupCreate(unittest.TestCase):
