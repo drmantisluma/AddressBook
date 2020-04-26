@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from classess.group import Group
-from classess.user import User
-from fixture import Fixture
+from fixture.fixture import Fixture
+from model.group import Group
+from model.user import User
 
 
 @pytest.fixture()
