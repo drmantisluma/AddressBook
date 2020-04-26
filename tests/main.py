@@ -14,12 +14,12 @@ def fixture(request):
 
 
 def test_group_create(fixture):
-    fixture.login()
+    fixture.session.login()
     fixture.create_group(Group("Name", "Head", "Foot"))
-    fixture.logout()
+    fixture.session.logout()
 
 
 def test_user_create(fixture):
-    fixture.login()
+    fixture.session.login()
     fixture.create_user(User("First", "Middle", "Last", "Eff-tech", "Nizhniy"))
-    fixture.logout()
+    fixture.session.logout()

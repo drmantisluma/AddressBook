@@ -1,11 +1,13 @@
 from selenium import webdriver
 
+from fixture.session import SessionHelper
+
 
 class Fixture:
-
     def __init__(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
+        self.session = SessionHelper(self)
 
     def create_group(self, group):
         self.open_group_page()
@@ -15,16 +17,6 @@ class Fixture:
     def create_user(self, user):
         self.open_user_creation()
         self.fill_user_form(user)
-
-    def login(self):
-        wd = self.driver
-        wd.get("http://localhost/addressbook/")
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_by_xpath("//input[@value='Login']").click()
 
     def open_group_page(self):
         wd = self.driver
@@ -67,10 +59,6 @@ class Fixture:
         wd.find_element_by_name("address2").send_keys(user.address)
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
         wd.find_element_by_link_text("home page").click()
-
-    def logout(self):
-        wd = self.driver
-        wd.find_element_by_link_text("Logout").click()
 
     def quit_browser(self):
         self.driver.quit()
