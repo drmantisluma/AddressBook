@@ -15,11 +15,11 @@ def fixture(request):
 
 def test_group_create(fixture):
     fixture.session.login()
-    fixture.create_group(Group("Name", "Head", "Foot"))
+    fixture.group.create(Group("Name", "Head", "Foot"))
     fixture.session.logout()
 
 
 def test_user_create(fixture):
     fixture.session.login()
-    fixture.create_user(User("First", "Middle", "Last", "Eff-tech", "Nizhniy"))
+    fixture.user.create(User("First", "Middle", "Last", "Eff-tech", "Nizhniy"))
     fixture.session.logout()
