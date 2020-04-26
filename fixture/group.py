@@ -26,3 +26,10 @@ class GroupHelper:
         wd.find_element_by_name("group_footer").send_keys(group.foot)
         wd.find_element_by_name("submit").click()
         wd.find_element_by_link_text("group page").click()
+
+    def delete_first(self):
+        self.open_group_page()
+        wd = self.fixture.driver
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_name("delete").click()
+        wd.find_element_by_link_text("group page").click()
