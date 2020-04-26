@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import pytest
 
+from classess.group import Group
+from classess.user import User
 from fixture import Fixture
 
 
@@ -13,11 +15,11 @@ def fixture(request):
 
 def test_group_create(fixture):
     fixture.login()
-    fixture.create_group()
+    fixture.create_group(Group("Name", "Head", "Foot"))
     fixture.logout()
 
 
 def test_user_create(fixture):
     fixture.login()
-    fixture.create_user()
+    fixture.create_user(User("First", "Middle", "Last", "Eff-tech", "Nizhniy"))
     fixture.logout()

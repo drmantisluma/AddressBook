@@ -1,8 +1,5 @@
 from selenium import webdriver
 
-from classess.group import Group
-from classess.user import User
-
 
 class Fixture:
 
@@ -10,16 +7,14 @@ class Fixture:
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
 
-    def create_group(self):
-        wd = self.driver
+    def create_group(self, group):
         self.open_group_page()
         self.open_group_creation()
-        self.fill_group_form(Group("Name", "Head", "Foot"))
+        self.fill_group_form(group)
 
-    def create_user(self):
-        wd = self.driver
+    def create_user(self, user):
         self.open_user_creation()
-        self.fill_user_form(User("First", "Middle", "Last", "Eff-tech", "Nizhniy"))
+        self.fill_user_form(user)
 
     def login(self):
         wd = self.driver
@@ -75,7 +70,6 @@ class Fixture:
 
     def logout(self):
         wd = self.driver
-
         wd.find_element_by_link_text("Logout").click()
 
     def quit_browser(self):
