@@ -27,3 +27,10 @@ class UserHelper:
         wd.find_element_by_name("address2").send_keys(user.address)
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
         wd.find_element_by_link_text("home page").click()
+
+    def delete_first(self):
+        wd = self.fixture.driver
+        wd.find_element_by_name("selected[]").click()
+        # probably it should be better to beautify this one
+        wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/div[2]/input").click()
+        wd.switch_to_alert().accept()
