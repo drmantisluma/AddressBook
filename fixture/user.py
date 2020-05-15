@@ -12,7 +12,6 @@ class UserHelper:
 
     def fill_user_form(self, user):
         wd = self.fixture.driver
-        wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(user.name)
         wd.find_element_by_name("middlename").clear()
@@ -34,3 +33,10 @@ class UserHelper:
         # probably it should be better to beautify this one
         wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
+
+    def modify_first(self):
+        wd = self.fixture.driver
+        wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[2]/td[8]/a").click()
+        wd.find_element_by_name("title").send_keys("QA")
+        wd.find_element_by_name("update").click()
+        wd.find_element_by_link_text("home page").click()

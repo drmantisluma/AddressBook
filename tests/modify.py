@@ -3,7 +3,7 @@ from model.group import Group
 
 def test_group_modify(fixture):
     fixture.session.login()
-    fixture.group.modify_first(Group("It's me", head="Leha", foot="Help me to get out from dog"))
+    fixture.group.modify_first(Group("It is me", head="Leha", foot="Help me to get out from dog"))
     fixture.session.logout()
 
 
